@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:formacao_flutter/screens/form_screen.dart';
 import 'package:formacao_flutter/screens/initial_screen.dart';
-
 
 void main() {
   runApp(const MyApp());
@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
       ),
       // o stack permite empilhar os containers
       // Scaffold é a estrutura completa do app
-      home: const InitialScreen() ,
+      home: const FormScreen() ,
     );
   }
 }
