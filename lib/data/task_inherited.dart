@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:formacao_flutter/components/task.dart';
 
-class TaskInherited extends InheritedWidget {
+class TaskInherited extends InheritedWidget  {
   TaskInherited({
     super.key,
     required Widget child,
@@ -10,13 +10,18 @@ class TaskInherited extends InheritedWidget {
   final List<Task> taskList = [
     Task('Aprender Flutter', 'assets/images/dash.png', 5),
     Task('Andar de bike', 'assets/images/bike.webp', 2),
-    Task('Meditar', 'assets/images/meditar.jpeg', 4),
   ];
 
-  void newTask(String name, String photo, int difficulty){
-    taskList.add(Task(name, photo, difficulty));
+  // void newTask(String name, String photo, int difficulty){
+  //   taskList.add(Task(name, photo, difficulty));
+  //
+  // }
 
+  void newTask(String name, String photo, int difficulty) {
+    taskList.add(Task(name, photo, difficulty));
+    print(taskList.last.nome);
   }
+
 
   static TaskInherited of(BuildContext context) {
     final TaskInherited? result =

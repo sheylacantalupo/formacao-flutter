@@ -25,9 +25,10 @@ class _InitialScreenState extends State<InitialScreen> {
         backgroundColor: Colors.blue,
       ),
       body: ListView(
-        children: TaskInherited.of(context).taskList,
-        padding: EdgeInsets.only(top: 8, bottom: 70),
-      ),
+          children: TaskInherited.of(context).taskList,
+          padding: EdgeInsets.only(top: 8, bottom: 70),
+        ),
+
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.blue,
         onPressed: () {
