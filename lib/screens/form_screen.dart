@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:formacao_flutter/components/task.dart';
+import 'package:formacao_flutter/data/task_DAO.dart';
 import 'package:formacao_flutter/data/task_inherited.dart';
 
 class FormScreen extends StatefulWidget {
@@ -16,19 +18,17 @@ class _FormScreenState extends State<FormScreen> {
   TextEditingController imageController = TextEditingController();
 
   final _formKey = GlobalKey<FormState>();
-  
-  bool valueValidator(String? value){
-    if(value != null && value.isEmpty){
+
+  bool valueValidator(String? value) {
+    if (value != null && value.isEmpty) {
       return true;
     }
     return false;
   }
 
-  bool difficultyValidator(String? value){
-    if(value != null && value.isEmpty){
-      if(value!.isEmpty ||
-          int.parse(value) > 5 ||
-          int.parse(value) < 1){
+  bool difficultyValidator(String? value) {
+    if (value != null && value.isEmpty) {
+      if (value!.isEmpty || int.parse(value) > 5 || int.parse(value) < 1) {
         return true;
       }
     }
@@ -144,26 +144,12 @@ class _FormScreenState extends State<FormScreen> {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // if (_formKey.currentState!.validate()) {
-                      //   TaskInherited.of(widget.taskContext).newTask(
-                      //       nameController.text,
-                      //       imageController.text,
-                      //       int.parse(difficultyController.text));
-                      //   ScaffoldMessenger.of(context).showSnackBar(
-                      //     const SnackBar(
-                      //       content: Text('Criando nova tarefa'),
-                      //     ),
-                      //   );
-                      //   Navigator.pop(context);
-                      // }
                       if (_formKey.currentState!.validate()) {
-                        // print(nameController.text);
-                        // print(difficultyController.text);
-                        // print(imageController.text);
-                        TaskInherited.of(widget.taskContext).newTask(
+                        TaskDao().save(Task(
                             nameController.text,
                             imageController.text,
-                            int.parse(difficultyController.text));
+                            int.parse(difficultyController.text),
+                        ));
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
                             content: Text('Criando uma nova Tarefa'),
