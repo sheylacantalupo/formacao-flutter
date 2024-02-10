@@ -21,6 +21,14 @@ class _InitialScreenState extends State<InitialScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: Container(),
+        actions: [
+          IconButton(
+            onPressed: () {
+              setState(() {});
+            },
+            icon: const Icon(Icons.refresh),
+          ),
+        ],
         title: const Text(
           'Tarefas',
           style: TextStyle(color: Colors.white),
@@ -102,7 +110,9 @@ class _InitialScreenState extends State<InitialScreen> {
                 taskContext: context,
               ),
             ),
-          );
+          ).then((value) => setState(() {
+                print('Recarregando a tela inicial');
+              }));
         },
         child: const Icon(
           Icons.add,
